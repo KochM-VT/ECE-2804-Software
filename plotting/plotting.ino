@@ -10,9 +10,11 @@
 
 int sensorPin = A0;
 int sensorValue = 0;
-int voltageValue - 0;
-// Sets up the array that the readings will be stored in
-int reading[numReadings];
+int voltageValue = 0;
+int sensorPintwo = A1;
+int sensorValuetwo = 0;
+int voltageValuetwo = 0;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -27,13 +29,21 @@ void loop() {
   // Read the value from the circuit into sensorValue;
   sensorValue = analogRead(sensorPin);
   // Convert the value read to the voltage value as seen by the arduino
-  voltValue = map(sensorValue, 0, 1023, 0, 5);
+  voltageValue = map(sensorValue, 0, 1023, 0, 5);
+
+  // Read the value from the circuit into sensorValue;
+  sensorValuetwo = analogRead(sensorPintwo);
+  // Convert the value read to the voltage value as seen by the arduino
+  voltageValuetwo = map(sensorValuetwo, 0, 1023, 0, 5);
 
   // Print out the input value after it has been converted to the 0 to 5  scale.
-  Serial.println(voltValue);
+  Serial.println(voltageValue);
+  Serial.print(",");
+  Serial.println(voltageValuetwo);
   Serial.print(" ");
 
   // Delay before the next reading to allow the system to not be overloaded.
-  delay(10);
+  delay(2);
 
 }
+
