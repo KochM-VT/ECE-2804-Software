@@ -13,8 +13,9 @@ void setup() {
 
 // Initializing the analog input pins that will take in the signal and the value that it will be used to store the data
 
-int sensorPin = A0;
+int sensorPin = 13;
 int sensorValue = 0;
+<<<<<<< Updated upstream
 double voltageValue = 0;
 int sensorPintwo = A1;
 int sensorValuetwo = 0;
@@ -25,10 +26,19 @@ void setup() {
   // Initialize communcation with computer
   Serial.begin(9600);
 >>>>>>> Stashed changes
+=======
+int sensorPintwo = 12;
+int sensorValuetwo = 0;
+int i = 0;
+
+void setup() {
+  Serial.begin(115200);
+>>>>>>> Stashed changes
 }
 
 void loop() {
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
   // Read the value from the circuit into sensorValue;
@@ -54,3 +64,14 @@ double voltagemap(double x, double in_min, double in_max, double out_min, double
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 >>>>>>> Stashed changes
 }
+=======
+  while (1)
+  { // do forever, without the 12uS or so that restarting loop imposes
+    Serial.print(PIND & B00000100);
+    Serial.print(" ");
+    Serial.println(PIND & B00100000);
+  }
+
+
+}
+>>>>>>> Stashed changes
